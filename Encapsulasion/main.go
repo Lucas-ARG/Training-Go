@@ -2,23 +2,19 @@ package main
 
 import (
 	"fmt"
+
+	course "github.com/Lucas-ARG/Training-Go/tree/main/Encapsulasion/Curso"
 )
 
 func main() {
-	Go := &Course.Course{
-		Name:    "Go desde Cero",
-		Price:   12.34,
-		IsFree:  false,
-		UserIDs: []uint{12, 56, 89},
-		Classes: map[uint]string{
-			1: "Introducción",
-			2: "Estructuras",
-			3: "Maps",
-		},
+	Go := course.New("Go desde Cero", 0, false)
+	Go.UserIDs = []uint{12, 56, 89}
+	Go.Classes = map[uint]string{
+		1: "Introducción",
+		2: "Estructuras",
+		3: "Maps",
 	}
-
-	Go.PrintClasses()
-	Go.ChangePrice(67.12)
-	fmt.Println(Go.Price)
-
+	// Go.PrintClasses()
+	// Go.ChangePrice(67.12)
+	fmt.Printf("%+v", Go)
 }
