@@ -8,13 +8,15 @@ import (
 
 func main() {
 	Go := course.New("Go desde Cero", 0, false)
-	Go.UserIDs = []uint{12, 56, 89}
-	Go.Classes = map[uint]string{
+	Go.SetUserIDs([]uint{12, 56, 89})
+	Go.SetClasses(map[uint]string{
 		1: "Introducción",
 		2: "Estructuras",
 		3: "Maps",
-	}
-	// Go.PrintClasses()
-	// Go.ChangePrice(67.12)
+	})
+
+	Go.SetName("POO con Go")
+	fmt.Println(Go.Name())
+	Go.PrintClasses()
 	fmt.Printf("%+v", Go)
 }

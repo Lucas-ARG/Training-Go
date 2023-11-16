@@ -3,11 +3,27 @@ package course
 import "fmt"
 
 type course struct {
-	Name    string
-	Price   float64
-	IsFree  bool
-	UserIDs []uint
-	Classes map[uint]string
+	name    string
+	price   float64
+	isFree  bool
+	userIDs []uint
+	classes map[uint]string
+}
+
+func (c *course) SetName(name string) { c.name = name }
+func (c *course) Name() string        { return c.name }
+
+func (c *course) SetPrice(price float64) { c.price = price }
+func (c *course) Price() float64         { return c.price }
+
+func (c *course) SetIsFree(isFree bool) { c.isFree = isFree }
+func (c *course) IsFree() bool          { return c.isFree }
+
+func (c *course) SetUserIDs(userIDs []uint) { c.userIDs = userIDs }
+func (c *course) UserIDs() []uint           { return c.userIDs }
+
+func (c *course) SetClasses(classes map[uint]string) {
+	c.classes = classes
 }
 
 func New(Name string, Price float64, Isfree bool) *course {
@@ -16,19 +32,15 @@ func New(Name string, Price float64, Isfree bool) *course {
 	}
 
 	return &course{
-		Name:   Name,
-		Price:  Price,
-		IsFree: Isfree,
+		name:   Name,
+		price:  Price,
+		isFree: Isfree,
 	}
-}
-
-func (c *course) ChangePrice(price float64) {
-	c.Price = price
 }
 
 func (c *course) PrintClasses() {
 	text := "Las clases son: "
-	for _, class := range c.Classes {
+	for _, class := range c.classes {
 		text += class + ", "
 	}
 
